@@ -7,9 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= render 'layouts/header'%>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+
+	<% flash.each do |name, msg|%>
+	<div class="alert text-center alert-<%= name = notice ? "success" : "error"%>">
+	
+	<a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+	<%= msg %>
+     </div>
+	<% end %>
+
+<%= render 'layouts/header'%> 
 
 <%= yield %>
 
